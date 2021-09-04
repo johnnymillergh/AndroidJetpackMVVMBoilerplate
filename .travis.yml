@@ -23,7 +23,6 @@ android:
 
 before_install:
   - chmod +x gradlew
-  - sdkmanager --list
 
 script:
   - ./gradlew clean build
