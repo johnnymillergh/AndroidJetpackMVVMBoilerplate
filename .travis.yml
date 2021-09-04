@@ -21,7 +21,7 @@ android:
 
 before_install:
   - chmod +x gradlew
-  - yes | sdkmanager "platforms;android-30"
+  - yes | sdkmanager --licenses
 
 script:
   - ./gradlew clean build
