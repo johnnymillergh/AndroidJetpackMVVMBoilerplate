@@ -23,8 +23,7 @@ android:
 
 before_install:
   - chmod +x gradlew
-  - ls /usr/local/android-sdk/tools/bin
-  - yes | /usr/local/android-sdk/tools/bin/sdkmanager --licenses
+  - sdkmanager --list
 
 script:
   - ./gradlew clean build
