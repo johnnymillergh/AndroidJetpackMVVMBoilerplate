@@ -11,7 +11,12 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Main">
         <activity
-                android:name=".MainActivity"
+                android:name=".login.views.LoginActivity"
+                android:exported="true"
+                android:label="@string/title_activity_login"
+                android:theme="@style/Theme.Main.NoActionBar" />
+        <activity
+                android:name=".main.views.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,4 +25,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
