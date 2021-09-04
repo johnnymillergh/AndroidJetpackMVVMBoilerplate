@@ -1,5 +1,5 @@
 language: android
-jdk: oraclejdk8
+jdk: oraclejdk11
 dist: trusty
 android:
   components:
@@ -23,6 +23,8 @@ android:
 
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-30"
+  - yes | sdkmanager "build-tools;31.0.0"
 
 script:
   - ./gradlew clean build
