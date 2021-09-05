@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.setDebounceClickListener
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.ActivityMainBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.views.LoginActivity
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainViewModel
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListener() {
-        clickMeButton.setOnClickListener {
+        clickMeButton.setDebounceClickListener {
             vm.clickMeCounter.value = vm.clickMeCounter.value?.inc()
             Timber.i("${(it as Button).text} was clicked clickMeCounter: ${vm.clickMeCounter.value}")
             this.startActivity(Intent(this, LoginActivity().javaClass))
