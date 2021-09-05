@@ -13,7 +13,7 @@ printInfo "[install] CURRENT_DIR: $CURRENT_DIR"
 printInfo "[install] List of CURRENT_DIR:"
 command "ls"
 
-printInfo "[install] Start to run Gradle clean, build…"
+printInfo "[install] Start to run Gradle command [clean,build]…"
 # Run the Gradle command
 ./gradlew clean build
 INSTALL_COMMAND_RESULT=$?
