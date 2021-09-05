@@ -8,6 +8,10 @@
         <variable
                 name="viewModel"
                 type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainViewModel" />
+
+        <variable
+                name="activity"
+                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.views.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +31,7 @@
 
         <Button
                 android:text="ClickMe"
-                android:onClick="handleClickMeButton"
+                android:onClick="@{activity::handleClickMeButton}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/clickme_button"
