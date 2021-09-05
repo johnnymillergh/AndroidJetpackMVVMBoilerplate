@@ -14,7 +14,6 @@ import javax.inject.Inject
  **/
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
-    val message = MutableLiveData<String>().apply {
-        value = "Hello world!"
-    }
+    val clickMeCounter = MutableLiveData(0)
+    val helloMessage = MutableLiveData("Hello world!")
 }

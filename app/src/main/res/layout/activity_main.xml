@@ -6,12 +6,8 @@
     <data>
 
         <variable
-                name="viewModel"
+                name="vm"
                 type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainViewModel" />
-
-        <variable
-                name="activity"
-                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.views.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +18,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{`Message from viewModel: ` + viewModel.message}"
+                android:text="@{`clickMeCounter: ` + vm.clickMeCounter}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -31,10 +27,9 @@
 
         <Button
                 android:text="ClickMe"
-                android:onClick="@{activity::handleClickMeButton}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/clickme_button"
+                android:id="@+id/clickMeButton"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="@+id/textView2"
