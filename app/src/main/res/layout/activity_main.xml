@@ -7,7 +7,7 @@
 
         <variable
                 name="vm"
-                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainViewModel" />
+                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainActivityVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

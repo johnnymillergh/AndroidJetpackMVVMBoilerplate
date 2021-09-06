@@ -9,13 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.R
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.FragmentFirstBinding
-import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodels.FirstFragmentViewModel
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodels.FirstFragmentVM
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
-    private val viewModel: FirstFragmentViewModel by viewModels()
+    private val vm: FirstFragmentVM by viewModels()
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -27,7 +27,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        binding.viewModel = viewModel
+        binding.vm = vm
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }

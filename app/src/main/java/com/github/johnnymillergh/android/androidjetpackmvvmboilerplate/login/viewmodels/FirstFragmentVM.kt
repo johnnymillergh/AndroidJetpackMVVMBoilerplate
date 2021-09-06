@@ -6,14 +6,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 /**
- * FirstFragmentViewModel
+ * FirstFragmentVM
  *
  * Change description here.
  *
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com, 9/4/21: 7:52 PM
  **/
 @HiltViewModel
-class FirstFragmentViewModel @Inject constructor() : ViewModel() {
+class FirstFragmentVM @Inject constructor() : ViewModel() {
     val message = MutableLiveData<String>().apply {
         value = "Hello from 1st fragment"
     }

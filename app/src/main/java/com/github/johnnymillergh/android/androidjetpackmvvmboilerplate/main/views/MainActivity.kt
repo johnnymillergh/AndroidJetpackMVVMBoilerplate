@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.setDebounceClickListener
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.ActivityMainBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.views.LoginActivity
-import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainViewModel
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainActivityVM
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
@@ -24,7 +24,7 @@ import java.time.LocalDateTime
  **/
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val vm: MainViewModel by viewModels()
+    private val vm: MainActivityVM by viewModels()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
