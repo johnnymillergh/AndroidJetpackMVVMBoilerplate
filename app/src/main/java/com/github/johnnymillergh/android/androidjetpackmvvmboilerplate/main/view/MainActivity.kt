@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListener() {
-        clickMeButton.setDebounceClickListener {
+        clickMeButton.setDebounceClickListener(250L) {
             vm.increaseClickMeCounter()
             Timber.i("${(it as Button).text} was clicked clickMeCounter: ${vm.clickMeCounter.value}")
             this.startActivity(Intent(this, LoginActivity().javaClass))

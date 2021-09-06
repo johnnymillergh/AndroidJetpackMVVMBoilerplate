@@ -24,12 +24,16 @@ import java.util.concurrent.TimeUnit
 fun View.setDebounceClickListener(
     duration: Long = 1000L,
     unit: TimeUnit = TimeUnit.MILLISECONDS,
+    disableClick: Boolean = true,
     listener: (view: View) -> Unit
 ): Disposable {
     return Observable.create { emitter: ObservableEmitter<View> ->
         setOnClickListener {
             if (!emitter.isDisposed) {
                 Timber.d("Emitter is emitting for the next event. Current thread: ${Thread.currentThread()}")
+                if (disableClick) {
+                    it.isClickable = false
+                }
                 emitter.onNext(it)
             }
         }
@@ -39,6 +43,9 @@ fun View.setDebounceClickListener(
             Timber.d("Before executing callback listener. Current thread: ${Thread.currentThread()}")
             it.post {
                 Timber.d("Executing callback listener. Current thread: ${Thread.currentThread()}")
+                if (disableClick) {
+                    it.isClickable = true
+                }
                 listener(it)
             }
         }

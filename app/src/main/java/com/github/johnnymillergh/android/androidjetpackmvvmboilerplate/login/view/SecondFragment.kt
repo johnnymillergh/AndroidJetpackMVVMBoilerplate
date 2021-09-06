@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.R
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.setDebounceClickListener
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.FragmentSecondBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel.SecondFragmentVM
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +38,7 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
+        binding.buttonSecond.setDebounceClickListener(250L) {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
         vm.userList.observe(viewLifecycleOwner, {
