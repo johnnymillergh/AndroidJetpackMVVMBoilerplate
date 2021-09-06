@@ -9,7 +9,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.R
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.ActivityLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityLoginBinding

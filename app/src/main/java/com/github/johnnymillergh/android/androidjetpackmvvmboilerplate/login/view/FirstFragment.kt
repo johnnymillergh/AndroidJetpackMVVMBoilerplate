@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.R
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.FragmentFirstBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel.FirstFragmentVM
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
     private val vm: FirstFragmentVM by viewModels()
 

@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-                name="vm"
-                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodel.MainActivityVM" />
+            name="vm"
+            type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodel.MainActivityVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".main.view.MainActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.view.MainActivity">
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{`clickMeCounter: ` + vm.clickMeCounter}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/textView2" />
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`clickMeCounter: ` + vm.clickMeCounter}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-                android:text="@string/click_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/clickMeButton"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="@+id/textView2"
-                android:layout_marginTop="8dp" />
+            android:id="@+id/clickMeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/click_me"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
