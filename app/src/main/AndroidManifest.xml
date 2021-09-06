@@ -11,12 +11,12 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Main">
         <activity
-                android:name=".login.views.LoginActivity"
+                android:name=".login.view.LoginActivity"
                 android:exported="true"
                 android:label="@string/title_activity_login"
                 android:theme="@style/Theme.Main.NoActionBar" />
         <activity
-                android:name=".main.views.MainActivity"
+                android:name=".main.view.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

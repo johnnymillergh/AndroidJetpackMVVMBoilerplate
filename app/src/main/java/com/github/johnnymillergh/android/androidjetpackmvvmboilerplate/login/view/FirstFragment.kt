@@ -1,4 +1,4 @@
-package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.views
+package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.R
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.FragmentFirstBinding
-import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodels.FirstFragmentVM
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel.FirstFragmentVM
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

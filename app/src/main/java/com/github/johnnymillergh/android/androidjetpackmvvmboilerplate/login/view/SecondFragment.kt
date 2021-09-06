@@ -1,4 +1,4 @@
-package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.views
+package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

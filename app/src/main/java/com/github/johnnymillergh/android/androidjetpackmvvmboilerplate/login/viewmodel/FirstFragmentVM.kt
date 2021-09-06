@@ -1,4 +1,4 @@
-package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodels
+package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

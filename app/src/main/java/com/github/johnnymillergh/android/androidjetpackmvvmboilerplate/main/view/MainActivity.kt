@@ -1,4 +1,4 @@
-package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.views
+package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.setDebounceClickListener
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.ActivityMainBinding
-import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.views.LoginActivity
-import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodels.MainActivityVM
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.view.LoginActivity
+import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodel.MainActivityVM
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber

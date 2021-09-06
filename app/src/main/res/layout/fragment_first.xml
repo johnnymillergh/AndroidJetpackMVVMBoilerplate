@@ -7,13 +7,13 @@
 
         <variable
                 name="vm"
-                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodels.FirstFragmentVM" />
+                type="com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel.FirstFragmentVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".login.views.FirstFragment">
+            tools:context=".login.view.FirstFragment">
 
         <TextView
                 android:id="@+id/textview_first"
