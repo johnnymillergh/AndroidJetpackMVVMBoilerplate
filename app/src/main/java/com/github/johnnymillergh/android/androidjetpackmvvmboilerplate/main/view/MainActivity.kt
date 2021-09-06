@@ -2,6 +2,7 @@ package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.vie
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,12 @@ class MainActivity : AppCompatActivity() {
         binding.vm = vm
         setListener()
         serObserver()
+        vm.saveUserVisitRecord()
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onPostCreate(savedInstanceState, persistentState)
+        Timber.i("onPostCreate")
     }
 
     private fun serObserver() {
