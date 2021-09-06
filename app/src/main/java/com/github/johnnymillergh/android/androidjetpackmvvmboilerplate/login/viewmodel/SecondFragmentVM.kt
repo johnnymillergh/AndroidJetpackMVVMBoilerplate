@@ -30,7 +30,9 @@ class SecondFragmentVM @Inject constructor(
     init {
         viewModelScope.launch(Dispatchers.IO) {
             val refreshUserList = secondFragmentRepository.refreshUserList()
-            _userList.postValue(refreshUserList.subList(0, 1))
+            if (!refreshUserList.isNullOrEmpty()) {
+                _userList.postValue(refreshUserList.subList(0, 1))
+            }
             Timber.i("Got user list, current thread: ${Thread.currentThread()}, list: $refreshUserList")
         }
     }
