@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Set on shake proof click listener
- * @receiver View
- * @param duration Long
- * @param unit TimeUnit
- * @param listener Function1<[@kotlin.ParameterName] View, Unit>
- * @return Disposable
+ * @receiver View the clickable view
+ * @param duration Long default 1000 milliseconds
+ * @param unit TimeUnit default unit is milliseconds
+ * @param listener Function1<[@kotlin.ParameterName] View, Unit> the listener for executing main processing logic after debouncing click
+ * @return Disposable Disposable
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com, 9/5/21: 9:49 PM
  * @see <a href="https://www.jianshu.com/p/f05e561ed13c">Android Kotlin 使用 Rxjava 实现防止快速点击（防抖动） </a>
  */
@@ -45,11 +45,11 @@ fun View.setDebounceClickListener(
 
 /**
  * Set throttle click listener
- * @receiver View
- * @param duration Long
- * @param unit TimeUnit
- * @param listener Function1<[@kotlin.ParameterName] View, Unit>
- * @return Disposable
+ * @receiver View the clickable view
+ * @param duration Long default 1000 milliseconds
+ * @param unit TimeUnit default unit is milliseconds
+ * @param listener Function1<[@kotlin.ParameterName] View, Unit> the listener for executing main processing logic after throttling click
+ * @return Disposable Disposable
  */
 @JvmOverloads
 fun View.setThrottleClickListener(
