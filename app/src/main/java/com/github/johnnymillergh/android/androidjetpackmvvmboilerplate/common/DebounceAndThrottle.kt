@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common
 
 import android.view.View
@@ -33,6 +35,7 @@ fun View.setDebounceClickListener(
     })
         .debounce(duration, unit)
         .subscribe {
+            Timber.d("Before executing callback listener. Current thread: ${Thread.currentThread()}")
             it.post {
                 Timber.d("Executing callback listener. Current thread: ${Thread.currentThread()}")
                 listener(it)
@@ -64,6 +67,7 @@ fun View.setThrottleClickListener(
     })
         .throttleFirst(duration, unit)
         .subscribe {
+            Timber.d("Before executing callback listener. Current thread: ${Thread.currentThread()}")
             it.post {
                 Timber.d("Executing callback listener. Current thread: ${Thread.currentThread()}")
                 listener(it)
