@@ -4,6 +4,7 @@ package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common
 
 import android.view.View
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.ObservableEmitter
 import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.disposables.Disposable
 import timber.log.Timber
@@ -25,14 +26,14 @@ fun View.setDebounceClickListener(
     unit: TimeUnit = TimeUnit.MILLISECONDS,
     listener: (view: View) -> Unit
 ): Disposable {
-    return Observable.create(ObservableOnSubscribe<View> { emitter ->
+    return Observable.create { emitter: ObservableEmitter<View> ->
         setOnClickListener {
             if (!emitter.isDisposed) {
                 Timber.d("Emitter is emitting for the next event. Current thread: ${Thread.currentThread()}")
                 emitter.onNext(it)
             }
         }
-    })
+    }
         .debounce(duration, unit)
         .subscribe {
             Timber.d("Before executing callback listener. Current thread: ${Thread.currentThread()}")
