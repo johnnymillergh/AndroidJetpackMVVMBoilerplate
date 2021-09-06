@@ -1,6 +1,5 @@
 package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.views
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -36,17 +35,16 @@ class MainActivity : AppCompatActivity() {
         serObserver()
     }
 
-    @SuppressLint("SetTextI18n")
     private fun serObserver() {
         vm.clickMeCounter.observe(this, {
             Timber.i("clickMeCounter has changed. newValue: $it")
-            textView2.text = "${vm.helloMessage.value}: ${vm.clickMeCounter.value}"
+            textView2.text = vm.concatMessage()
         })
     }
 
     private fun setListener() {
         clickMeButton.setDebounceClickListener {
-            vm.clickMeCounter.value = vm.clickMeCounter.value?.inc()
+            vm.increaseClickMeCounter()
             Timber.i("${(it as Button).text} was clicked clickMeCounter: ${vm.clickMeCounter.value}")
             this.startActivity(Intent(this, LoginActivity().javaClass))
         }
