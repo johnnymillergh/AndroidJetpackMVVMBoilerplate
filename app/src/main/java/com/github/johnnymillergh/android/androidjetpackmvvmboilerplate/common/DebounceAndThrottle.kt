@@ -30,10 +30,11 @@ fun View.setDebounceClickListener(
     return Observable.create { emitter: ObservableEmitter<View> ->
         setOnClickListener {
             if (!emitter.isDisposed) {
-                Timber.d("Emitter is emitting for the next event. Current thread: ${Thread.currentThread()}")
-                if (disableClick) {
+                if (disableClick && it.isClickable) {
                     it.isClickable = false
+                    Timber.d("Disabled view click. Current thread: ${Thread.currentThread()}")
                 }
+                Timber.d("Emitter is emitting for the next event. Current thread: ${Thread.currentThread()}")
                 emitter.onNext(it)
             }
         }
@@ -43,10 +44,11 @@ fun View.setDebounceClickListener(
             Timber.d("Before executing callback listener. Current thread: ${Thread.currentThread()}")
             it.post {
                 Timber.d("Executing callback listener. Current thread: ${Thread.currentThread()}")
-                if (disableClick) {
-                    it.isClickable = true
-                }
                 listener(it)
+                if (disableClick && !it.isClickable) {
+                    it.isClickable = true
+                    Timber.d("Enabled view click. Current thread: ${Thread.currentThread()}")
+                }
             }
         }
 }
