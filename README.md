@@ -70,8 +70,8 @@ Here is the highlights of **Android Jetpack MVVM Boilerplate**:
 
 ## CI (Continuous Integration)
 
-- [Travis CI](https://travis-ci.com/github/johnnymillergh/media-streaming) is for publishing Docker Hub images of SNAPSHOT and RELEASE.
-- [GitHub Actions](https://github.com/johnnymillergh/media-streaming/actions) is for checking dependency updates and tests.
+- [GitHub Actions](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions) is for building and testing.
+- *Deprecated* [Travis CI](https://travis-ci.com/github/johnnymillergh/media-streaming) is for publishing Docker Hub images of SNAPSHOT and RELEASE.
 
 ## Maintainers
 
@@ -79,7 +79,7 @@ Here is the highlights of **Android Jetpack MVVM Boilerplate**:
 
 ## Contributing
 
-Feel free to dive in! [Open an issue](https://github.com/johnnymillergh/spring-cloud-tutorial/issues/new).
+Feel free to dive in! [Open an issue](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/issues/new).
 
 ### Contributors
 
@@ -95,6 +95,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## License
 
-[Apache License](https://github.com/johnnymillergh/exrx-net-crawler-server/blob/master/LICENSE) © Johnny Miller
+[Apache License](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/blob/master/LICENSE) © Johnny Miller
 
-2020 - Present
+2021 - Present
