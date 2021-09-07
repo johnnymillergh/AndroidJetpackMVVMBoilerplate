@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-java@v2.3.0
         with:
           java-version: '11.0.10'
+          distribution: 'adopt-hotspot'
       - name: Change Wrapper and Shellscipts Permissions
         run: |
           chmod +x ./gradlew
