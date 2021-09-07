@@ -17,30 +17,53 @@ android {
         minSdk 26
         targetSdk 30
         versionCode 1
-        versionName "1.0.beta"
+        versionName "1.0"
+        buildConfigField("int", "DATABASE_VERSION_CODE", "1")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
             }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../ajmb.keystore")
+            storePassword "ajmbpassword"
+            keyAlias "ajmbReleaseKey"
+            keyPassword "ajmbpassword"
         }
     }
 
     buildTypes {
         debug {
-            buildConfigField "int", "DATABASE_VERSION_CODE", "1"
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+            buildConfigField("String", "BASE_URL", '"http://base-url-debug.com"')
+        }
+        /**
+         * The `initWith` property allows you to copy configurations from other build types,
+         * then configure only the settings you want to change. This one copies the debug build
+         * type, and then changes the manifest placeholder and application ID.
+         */
+        staging {
+            initWith debug
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+            buildConfigField("String", "BASE_URL", '"http://base-url-staging.com"')
         }
         release {
-            buildConfigField "int", "DATABASE_VERSION_CODE", "1"
+            buildConfigField("String", "BASE_URL", '"http://base-url.com"')
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
