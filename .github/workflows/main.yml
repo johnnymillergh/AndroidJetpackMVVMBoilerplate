@@ -28,6 +28,6 @@ jobs:
       - name: Change Wrapper and Shellscipts Permissions
         run: |
           chmod +x ./gradlew
-          chmod +x ./shell/*.sh
+        # chmod +x ./shell/*.sh
       - name: Build Project
         run: ./gradlew clean build
