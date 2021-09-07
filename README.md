@@ -1,6 +1,6 @@
 [Muscle and Fitness Server Social Image](https://raw.githubusercontent.com/johnnymillergh/MaterialLibrary/master/muscle-and-fitness/muscle-and-fitness-server-social-image.png)
 [![GitHub release](https://img.shields.io/github/release/johnnymillergh/AndroidJetpackMVVMBoilerplate.svg)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/releases)
-[![GitHub Actions Android CI](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions/workflows/main.yml/badge.svg)
+[![Android CI](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions)
 [![GitHub issues](https://img.shields.io/github/issues/johnnymillergh/AndroidJetpackMVVMBoilerplate)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/issues)
 [![GitHub forks](https://img.shields.io/github/forks/johnnymillergh/AndroidJetpackMVVMBoilerplate)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/network)
 [![GitHub stars](https://img.shields.io/github/stars/johnnymillergh/AndroidJetpackMVVMBoilerplate)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate)
@@ -12,6 +12,8 @@
 # Android Jetpack MVVM Boilerplate
 
 **Android Jetpack MVVM Boilerplate** a Jetpack based, MVVM boilerplate template project for Modern Android.
+
+
 
 ## Features
 
