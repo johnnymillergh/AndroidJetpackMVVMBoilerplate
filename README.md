@@ -1,4 +1,4 @@
-[Muscle and Fitness Server Social Image](https://raw.githubusercontent.com/johnnymillergh/MaterialLibrary/master/muscle-and-fitness/muscle-and-fitness-server-social-image.png)
+![Android Jetpack MVVM Boilerplate Social Image](https://raw.githubusercontent.com/johnnymillergh/MaterialLibrary/master/AndroidJetpackMVVMBoilerplate/AndroidJetpackMVVMBoilerplate-social-image.png)
 [![GitHub release](https://img.shields.io/github/release/johnnymillergh/AndroidJetpackMVVMBoilerplate.svg)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/releases)
 [![Android CI](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/actions)
 [![GitHub issues](https://img.shields.io/github/issues/johnnymillergh/AndroidJetpackMVVMBoilerplate)](https://github.com/johnnymillergh/AndroidJetpackMVVMBoilerplate/issues)
