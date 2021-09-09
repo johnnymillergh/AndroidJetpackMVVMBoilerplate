@@ -1,13 +1,13 @@
 package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.model.NetworkUserListItem
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.repository.SecondFragmentRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -23,17 +23,16 @@ import javax.inject.Inject
 class SecondFragmentVM @Inject constructor(
     private val secondFragmentRepository: SecondFragmentRepository
 ) : ViewModel() {
-    private val _userList =
-        MutableLiveData<List<NetworkUserListItem>>(emptyList())
-    val userList: LiveData<List<NetworkUserListItem>> get() = _userList
+    private val _userList = MutableStateFlow<List<NetworkUserListItem>>(emptyList())
+    val userList get() = _userList.asStateFlow()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             val refreshUserList = secondFragmentRepository.refreshUserList()
-            if (!refreshUserList.isNullOrEmpty()) {
-                _userList.postValue(refreshUserList.subList(0, 1))
-            }
             Timber.i("Got user list, current thread: ${Thread.currentThread()}, list: $refreshUserList")
+            if (!refreshUserList.isNullOrEmpty()) {
+                _userList.value = refreshUserList.subList(0, 1)
+            }
         }
     }
 }
