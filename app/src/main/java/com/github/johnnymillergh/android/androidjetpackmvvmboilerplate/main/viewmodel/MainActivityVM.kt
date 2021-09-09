@@ -1,11 +1,11 @@
 package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodel
 
 import android.os.Build
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.model.UserVisitRecord
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.repository.MainActivityRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import timber.log.Timber
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -21,12 +21,12 @@ import javax.inject.Inject
 class MainActivityVM @Inject constructor(
     private val mainActivityRepository: MainActivityRepository
 ) : ViewModel() {
-    val clickMeCounter = MutableLiveData(0)
-    private val helloMessage = MutableLiveData("Hello world!")
+    val clickMeCounter = MutableStateFlow(0)
+    private val helloMessage = MutableStateFlow("Hello world!")
 
     fun increaseClickMeCounter() {
         Timber.i("Increase click me counter (MutableLiveData): $clickMeCounter")
-        clickMeCounter.value = clickMeCounter.value?.inc()
+        clickMeCounter.value = clickMeCounter.value.inc()
     }
 
     fun concatMessage(): CharSequence {
