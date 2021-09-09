@@ -17,6 +17,7 @@ import kotlinx.coroutines.FlowPreview
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@FlowPreview
 @AndroidEntryPoint
 class FirstFragment : Fragment() {
     @FlowPreview
