@@ -12,12 +12,14 @@ import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.se
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.FragmentFirstBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.viewmodel.FirstFragmentVM
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.FlowPreview
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 @AndroidEntryPoint
 class FirstFragment : Fragment() {
+    @FlowPreview
     private val vm: FirstFragmentVM by viewModels()
 
     private var _binding: FragmentFirstBinding? = null
@@ -28,7 +30,7 @@ class FirstFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         binding.vm = vm
         binding.lifecycleOwner = viewLifecycleOwner
@@ -37,7 +39,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setListener()
+    }
 
+    private fun setListener() {
         binding.buttonFirst.setDebounceClickListener(250L) {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }

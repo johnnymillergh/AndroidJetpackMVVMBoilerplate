@@ -6,12 +6,15 @@ import android.os.PersistableBundle
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.common.setDebounceClickListener
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.databinding.ActivityMainBinding
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.login.view.LoginActivity
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.viewmodel.MainActivityVM
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.flow.collect
 import timber.log.Timber
 import java.time.LocalDateTime
 
@@ -43,10 +46,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun serObserver() {
-        vm.clickMeCounter.observe(this, {
-            Timber.i("clickMeCounter has changed. newValue: $it")
-            textView2.text = vm.concatMessage()
-        })
+        lifecycleScope.launchWhenStarted {
+            Timber.i("lifecycleScope launched a coroutine. Current thread: ${Thread.currentThread()}, $this")
+            vm.clickMeCounter.collect {
+                val message = "clickMeCounter has changed. newValue: $it"
+                Timber.i(message)
+                Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+                textView2.text = vm.concatMessage()
+            }
+        }
     }
 
     private fun setListener() {
