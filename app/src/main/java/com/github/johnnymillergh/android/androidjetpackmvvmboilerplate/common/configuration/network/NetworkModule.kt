@@ -47,6 +47,6 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): DemoService =
+    fun provideDemoService(retrofit: Retrofit): DemoService =
         retrofit.create(DemoService::class.java)
 }

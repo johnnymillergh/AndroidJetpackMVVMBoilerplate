@@ -55,6 +55,11 @@ class MainActivity : AppCompatActivity() {
                 textView2.text = vm.concatMessage()
             }
         }
+        lifecycleScope.launchWhenStarted {
+            vm.userVisitRecord.collect {
+                userVisitRecordTextView.text = it.toString()
+            }
+        }
     }
 
     private fun setListener() {

@@ -8,8 +8,8 @@ import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.mode
 @Dao
 interface UserVisitRecordDao {
     @Insert
-    fun insert(userVisitRecord: UserVisitRecord)
+    suspend fun insert(userVisitRecord: UserVisitRecord)
 
-    @Query("SELECT * FROM user_visit_record order by visit_time DESC")
-    fun selectAll(): List<UserVisitRecord>
+    @Query("SELECT * FROM user_visit_record order by visit_time DESC LIMIT 1")
+    suspend fun selectTheLatest(): UserVisitRecord
 }

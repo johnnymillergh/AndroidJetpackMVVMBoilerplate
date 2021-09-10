@@ -2,10 +2,13 @@ package com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.vie
 
 import android.os.Build
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.model.UserVisitRecord
 import com.github.johnnymillergh.android.androidjetpackmvvmboilerplate.main.repository.MainActivityRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -27,6 +30,12 @@ class MainActivityVM @Inject constructor(
      */
     val clickMeCounter = MutableStateFlow(0)
     private val helloMessage = MutableStateFlow("Hello world!")
+    private val _userVisitRecord = MutableStateFlow(UserVisitRecord(0, "", LocalDateTime.MIN, ""))
+    val userVisitRecord get() = _userVisitRecord.asStateFlow()
+
+    init {
+        getTheLatestUserVisitRecord()
+    }
 
     fun increaseClickMeCounter() {
         Timber.i("Increase click me counter (MutableLiveData): $clickMeCounter")
@@ -37,7 +46,7 @@ class MainActivityVM @Inject constructor(
         return "${helloMessage.value}: ${clickMeCounter.value}"
     }
 
-    fun saveUserVisitRecord() {
+    fun saveUserVisitRecord() = viewModelScope.launch {
         mainActivityRepository.saveUserVisitRecord(
             UserVisitRecord(
                 null,
@@ -46,5 +55,9 @@ class MainActivityVM @Inject constructor(
                 Build.VERSION.RELEASE
             )
         )
+    }
+
+    private fun getTheLatestUserVisitRecord() = viewModelScope.launch {
+        _userVisitRecord.value = mainActivityRepository.getTheLatestUserVisitRecord()
     }
 }
