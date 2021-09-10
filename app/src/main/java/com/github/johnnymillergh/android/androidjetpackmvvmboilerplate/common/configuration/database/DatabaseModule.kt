@@ -8,6 +8,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import timber.log.Timber
+import java.util.concurrent.Executors
 import javax.inject.Singleton
 
 /**
@@ -27,12 +29,16 @@ object DatabaseModule {
                 DemoSQLiteDatabase::class.java,
                 "DemoSQLite.db"
             )
+            .setQueryCallback({ sqlQuery, bindArgs ->
+                Timber.d("[${Thread.currentThread()}] Room ==>  Preparing: $sqlQuery")
+                Timber.d("[${Thread.currentThread()}] Room ==> Parameters: $bindArgs")
+            }, Executors.newSingleThreadExecutor())
             .fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
-    fun provideChannelDao(demoSQLiteDatabase: DemoSQLiteDatabase): UserVisitRecordDao {
+    fun provideUserVisitRecordDao(demoSQLiteDatabase: DemoSQLiteDatabase): UserVisitRecordDao {
         return demoSQLiteDatabase.userVisitRecordDao
     }
 }
