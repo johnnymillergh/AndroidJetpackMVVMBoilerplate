@@ -21,6 +21,10 @@ import javax.inject.Inject
 class MainActivityVM @Inject constructor(
     private val mainActivityRepository: MainActivityRepository
 ) : ViewModel() {
+    /**
+     * LiveData -> MutableStateFlow
+     * @see <a href='https://johnoreilly.dev/posts/jetpack-compose-stateflow-livedata/'>Comparing use of LiveData and StateFlow in a Jetpack Compose project</a>
+     */
     val clickMeCounter = MutableStateFlow(0)
     private val helloMessage = MutableStateFlow("Hello world!")
 
